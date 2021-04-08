@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出一个窗口后，后面的层不可操作</title>
+<style>
+    /* 定义模态对话框外面的覆盖层样式 */
+    #modal-overlay {
+        visibility: hidden;
+        position: absolute;   /* 使用绝对定位或固定定位  */
+        left: 0px;
+        top: 0px;
+        width:100%;
+        height:100%;
+        text-align:center;
+        z-index: 1000;
+        background-color: #333;
+        opacity: 0.5;   /* 背景半透明 */
+    }
+    /* 模态框样式 */
+    .modal-data{
+
+        background-color: #1648dc;
+        border:1px solid #000;
+        padding:15px;
+        text-align:left;
+        width: 80%;
+
+        /* z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。 */
+        z-index: 1;
+        /* 弹窗的位置,左边数字为top距离,右边的为left距离 */
+        margin: 60% auto;
+    }
+</style>
+</head>
+<body>
+<div id="modal-overlay">
+    <div class="modal-data" style="color: white">
+
+        <div id="div2">
+            <div>
+                <div style="float: right; background-color: #0075fa">
+                    <span id="close-button" onclick="overlay()"> X </span></div>
+                <center>个人信息</center>
+            </div>
+            <div>
+            <p>
+                ‧姓名: 况金龙 <br>
+                ‧学号: 12019635421<br>
+                ‧性别: 男<br>
+                ‧年级: 2019<br>
+                ‧学院: 软件学院<br>
+                ‧专业: 软件工程(硕)<br>
+                ‧班级: -
+            </p>
+                </div>
+        </div>
+
+    </div>
+</div>
+<button onclick="overlay()">dianji</button>
+
+<script>
+    function overlay(){
+        var e1 = document.getElementById('modal-overlay');
+        e1.style.visibility =  (e1.style.visibility == "visible"  ) ? "hidden" : "visible";
+    }
+</script>
+
+</body>
+</html>

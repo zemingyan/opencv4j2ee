@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+    /* 弹窗后,网页的背景 */
+    #background {
+        /* 默认隐藏不显示 */
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        /* 如果使用下面这个参数,一旦弹框后,背景的内容就看不到了. */
+        /* background-color:darkgrey; */
+    }
+
+    /* 弹窗页面的背景 */
+    #div1 {
+        /* 弹窗的背景颜色 */
+        background:#eeeeee;
+        /* 弹出页面的宽度 */
+        width: 40%;
+
+        /* z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。 */
+        z-index: 1;
+        /* 弹窗的位置,左边数字为top距离,右边的为left距离 */
+        margin: 10% auto;
+    }
+
+    #div2 {
+        background-color: #086ad9;
+        margin: auto;
+        /* 弹出页面高度,如果不固定高度,高度会以实际内容扩展 */
+       /* height: 150px;*/
+        padding: 20px;
+
+        /*
+            属性规定当内容溢出元素框时发生的事情。
+            如果内容超出，则浏览器会显示滚动条以便查看其余的内容。
+        */
+        overflow: auto;
+    }
+
+    #close-button {
+        /* 鼠标放上去有游标 */
+        cursor: pointer;
+        /* 字体在最右边显示 */
+        /* float: right; */
+        font-size: 20px;
+    }
+</style>
+<body>
+<button id="open_btn" class="btn">弹窗</button>
+Bruce测试测试测试
+
+
+<!-- 弹窗内容开始 -->
+<div id="background" style="color: white">
+
+    <div id="div1">
+
+
+
+        <div id="div2">
+            <div>
+
+            <div style="float: right; background-color: #0233f5"> <span id="close-button">关闭</span></div>
+                <center>个人信息</center>
+            </div>
+            <p>
+                ‧姓名: 况金龙 <br>
+                ‧学号: 12019635421<br>
+                ‧性别: 男<br>
+                ‧年级:2019<br>
+                ‧学院:软件学院<br>
+                ‧专业:软件工程(硕)<br>
+
+            </p>
+        </div>
+
+    </div>
+
+</div>
+<!-- 弹窗内容结束 -->
+<script>
+    var btn = document.getElementById('open_btn');
+    var background = document.getElementById('background');
+    var close = document.getElementById('close-button');
+
+    btn.onclick = function show() {
+        background.style.display = "block";
+    };
+    close.onclick = function close() {
+        background.style.display = "none";
+    };
+</script>
+
+</body>
+</html>
